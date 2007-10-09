@@ -1,16 +1,3 @@
-%if %mdkversion
-%if %mdkversion < 200700
-# default to non-modular X on MDV < 200700
-%define _modular_X 0%{?_with_modular_x:1}
-%else
-# default to modular X on MDV >= 200700
-%define _modular_X 0%{!?_without_modular_x:1}
-%endif
-%else
-# default to modular X elsewhere
-%define _modular_X 0%{!?_without_modular_x:1}
-%endif
-
 %define	name	qemulator
 %define oname   Qemulator
 %define	version	0.5
@@ -24,6 +11,7 @@ License:	GPL
 Group:		Emulators
 URL:		http://qemulator.createweb.de/
 Source0:	http://qemulator.createweb.de/%{oname}-%{version}.tar.gz
+Source1:        %{name}.desktop
 Patch0:         fix_python_dir.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:	noarch
@@ -32,20 +20,13 @@ Requires:       python
 Requires:       pygtk2.0
 Requires:       libglade2.0
 Requires:       python-gnome
+Requires:       qemu
 BuildRequires:	librsvg
 BuildRequires:	libxml2-utils
 BuildRequires:	desktop-file-utils
 BuildRequires:  libglade2.0-devel
 BuildRequires:  pygtk2.0-devel
 BuildRequires:  python-gnome-devel
-
-%if %_modular_X
-BuildRequires:  x11-server-xvfb
-%define _xvfb /usr/bin/Xvfb
-%else
-BuildRequires:  xorg-x11-Xvfb
-%define _xvfb /usr/X11R6/bin/Xvfb
-%endif
 
 %description
 A launcher for Qemu that manages Qemu configs and creates disk images
@@ -83,6 +64,10 @@ chmod -x %{buildroot}/usr/share/qemulator/icons/mac.png
 convert -resize 32x32 usr/local/share/pixmaps/qemulator.svg qemulator.xpm
 cp qemulator.xpm %{buildroot}/usr/share/pixmaps/
 ln -s /usr/share/qemulator/qemulator.py %{buildroot}/usr/bin/qemulator
+cp -rf %{SOURCE1} %{buildroot}%{_datadir}/applications/%{name}.desktop
+
+desktop-file-install --vendor="" \
+  --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/%{name}.desktop
 
 %post
 %update_menus
