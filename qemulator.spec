@@ -27,6 +27,7 @@ BuildRequires:	desktop-file-utils
 BuildRequires:  libglade2.0-devel
 BuildRequires:  pygtk2.0-devel
 BuildRequires:  python-gnome-devel
+BuildRequires:  imagemagick
 
 %description
 A launcher for Qemu that manages Qemu configs and creates disk images
