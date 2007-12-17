@@ -13,7 +13,6 @@ URL:		http://qemulator.createweb.de/
 Source0:	http://qemulator.createweb.de/%{oname}-%{version}.tar.gz
 Source1:        %{name}.desktop
 Patch0:         fix_python_dir.patch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:	noarch
 Requires:	perl-Locale-gettext >= 1.04
 Requires:       python
