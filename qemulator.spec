@@ -1,7 +1,7 @@
 %define	name	qemulator
 %define oname   Qemulator
 %define	version	0.5
-%define	release	%mkrel 1
+%define	release	%mkrel 2
 
 Summary:	Interface to configure and launch Qemu
 Name:		%name
@@ -21,6 +21,7 @@ Requires:       pygtk2.0
 Requires:       libglade2.0
 Requires:       python-gnome
 Requires:       qemu
+Requires:	pygtk2.0-libglade
 BuildRequires:	librsvg
 BuildRequires:	libxml2-utils
 BuildRequires:	desktop-file-utils
