@@ -1,7 +1,7 @@
 %define	name	qemulator
 %define oname   Qemulator
 %define	version	0.5
-%define	release	%mkrel 4
+%define	release	%mkrel 5
 
 Summary:	Interface to configure and launch Qemu
 Name:		%name
