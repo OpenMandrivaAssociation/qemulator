@@ -1,7 +1,7 @@
 %define	name	qemulator
 %define oname   Qemulator
 %define	version	0.5
-%define	release	%mkrel 5
+%define	release	%mkrel 6
 
 Summary:	Interface to configure and launch Qemu
 Name:		%name
@@ -27,7 +27,6 @@ BuildRequires:	libxml2-utils
 BuildRequires:	desktop-file-utils
 BuildRequires:  libglade2.0-devel
 BuildRequires:  pygtk2.0-devel
-BuildRequires:  python-gnome-devel
 BuildRequires:  imagemagick
 
 %description
