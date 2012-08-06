@@ -62,10 +62,8 @@ chmod -x %{buildroot}%{_datadir}/qemulator/icons/mac.png
 convert -resize 32x32 usr/local/share/pixmaps/qemulator.svg qemulator.xpm
 cp qemulator.xpm %{buildroot}%{_datadir}/pixmaps/
 ln -s %{_datadir}/qemulator/qemulator.py %{buildroot}%{_bindir}/qemulator
-cp -rf %{SOURCE1} %{buildroot}%{_datadir}/applications/%{name}.desktop
 
-desktop-file-install --vendor="" \
-  --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/%{name}.desktop
+desktop-file-install --dir=%{buildroot}%{_datadir}/applications %{SOURCE1}
 
 %clean
 rm -rf %{buildroot}
