@@ -1,0 +1,268 @@
+diff -Nur trunk/usr/local/bin/qemulator trunk.new/usr/local/bin/qemulator
+--- trunk/usr/local/bin/qemulator	2007-06-15 21:48:07.000000000 +0200
++++ trunk.new/usr/local/bin/qemulator	2007-07-31 11:18:44.000000000 +0200
+@@ -83,17 +83,17 @@
+         basedir = os.getcwd()
+ sys.path.insert(0, basedir)
+ os.chdir(basedir)  
+-#print "basedir: " + basedir
++print "basedir: " + basedir
+ basedir = basedir.replace ( '/bin', '' ) 
+-basedir = basedir.replace ( '/lib/qemulator', '' ) 
++basedir = basedir.replace ( '/share/qemulator', '' ) 
+ sys.path.append(basedir)   
+ bindir = basedir + "/bin"
+ #print "bindir: " + bindir
+-libdir = basedir + "/lib/qemulator"
++libdir = "/usr/share/qemulator"
+ #print "libdir: " + libdir
+ sharedir = basedir + "/share/qemulator"
+ #print "sharedir: " + sharedir
+-pixmapdir = basedir + "/share/pixmaps/qemulator"
++pixmapdir = "/usr/share/pixmaps/qemulator"
+ #print "pixmapdir: " + pixmapdir     
+ homedir = os.path.expanduser('~/.qemulator')
+ configdir = homedir + "/config"
+@@ -222,7 +222,7 @@
+         self.basedir = basedir 
+         #print "basedir: " + self.basedir 
+         self.bindir = self.basedir + "/bin"
+-        self.libdir = self.basedir + "/lib/qemulator"
++        self.libdir = "/usr/share/qemulator"
+         self.sharedir = self.basedir + "/share/qemulator"
+         self.pixmapdir = pixmapdir
+         self.homedir = os.path.expanduser('~/.qemulator')
+diff -Nur trunk/usr/local/lib/qemulator/qemulator.py trunk.new/usr/local/lib/qemulator/qemulator.py
+--- trunk/usr/local/lib/qemulator/qemulator.py	2007-06-15 21:48:07.000000000 +0200
++++ trunk.new/usr/local/lib/qemulator/qemulator.py	2007-07-31 11:19:36.000000000 +0200
+@@ -85,15 +85,15 @@
+ os.chdir(basedir)  
+ #print "basedir: " + basedir
+ basedir = basedir.replace ( '/bin', '' ) 
+-basedir = basedir.replace ( '/lib/qemulator', '' ) 
++basedir = basedir.replace ( '/share/qemulator', '' ) 
+ sys.path.append(basedir)   
+ bindir = basedir + "/bin"
+ #print "bindir: " + bindir
+-libdir = basedir + "/lib/qemulator"
++libdir = "/usr/share/qemulator"
+ #print "libdir: " + libdir
+ sharedir = basedir + "/share/qemulator"
+ #print "sharedir: " + sharedir
+-pixmapdir = basedir + "/share/pixmaps/qemulator"
++pixmapdir = "/usr/share/pixmaps/qemulator"
+ #print "pixmapdir: " + pixmapdir     
+ homedir = os.path.expanduser('~/.qemulator')
+ configdir = homedir + "/config"
+@@ -222,7 +222,7 @@
+         self.basedir = basedir 
+         #print "basedir: " + self.basedir 
+         self.bindir = self.basedir + "/bin"
+-        self.libdir = self.basedir + "/lib/qemulator"
++        self.libdir = "/usr/share/qemulator"
+         self.sharedir = self.basedir + "/share/qemulator"
+         self.pixmapdir = pixmapdir
+         self.homedir = os.path.expanduser('~/.qemulator')
+diff -Nur trunk/usr/local/lib/qemulator/qml_audioenviron.py trunk.new/usr/local/lib/qemulator/qml_audioenviron.py
+--- trunk/usr/local/lib/qemulator/qml_audioenviron.py	2007-05-20 09:12:02.000000000 +0200
++++ trunk.new/usr/local/lib/qemulator/qml_audioenviron.py	2007-07-31 11:14:35.000000000 +0200
+@@ -54,11 +54,11 @@
+ os.chdir(basedir)  
+ #print "basedir: " + basedir
+ basedir = basedir.replace ( '/bin', '' ) 
+-basedir = basedir.replace ( '/lib/qemulator', '' ) 
++basedir = basedir.replace ( '/share/qemulator', '' ) 
+ sys.path.append(basedir)   
+ bindir = basedir + "/bin"
+ #print "bindir: " + bindir
+-libdir = basedir + "/lib/qemulator"
++libdir = basedir + "/share/qemulator"
+ #print "libdir: " + libdir
+ sharedir = basedir + "/share/qemulator"
+ #print "sharedir: " + sharedir
+diff -Nur trunk/usr/local/lib/qemulator/qml_configuration.py trunk.new/usr/local/lib/qemulator/qml_configuration.py
+--- trunk/usr/local/lib/qemulator/qml_configuration.py	2007-05-17 03:53:39.000000000 +0200
++++ trunk.new/usr/local/lib/qemulator/qml_configuration.py	2007-07-31 11:14:35.000000000 +0200
+@@ -54,7 +54,7 @@
+ sys.path.insert(0, basedir)   
+ 
+ basedir = basedir.replace ( '/bin', '' ) 
+-basedir = basedir.replace ( '/lib/qemulator', '' )
++basedir = basedir.replace ( '/share/qemulator', '' )
+ 
+ APP = 'Qemulator'
+ #DIR = 'locale'
+@@ -71,7 +71,7 @@
+ 
+ homedir = os.path.expanduser('~/.qemulator')
+ configdir = homedir + "/config"
+-libdir = basedir + "/lib/qemulator"
++libdir = basedir + "/share/qemulator"
+ class Configuration:
+     def __init__(self, callback_func=None):
+         self.settings_autoshow = True
+@@ -604,4 +604,4 @@
+     except:
+         outdata  = { }
+         print "no config file"
+-        return outdata               
+\ No newline at end of file
++        return outdata               
+diff -Nur trunk/usr/local/lib/qemulator/qml_controlmon.py trunk.new/usr/local/lib/qemulator/qml_controlmon.py
+--- trunk/usr/local/lib/qemulator/qml_controlmon.py	2007-05-30 11:14:48.000000000 +0200
++++ trunk.new/usr/local/lib/qemulator/qml_controlmon.py	2007-07-31 11:14:35.000000000 +0200
+@@ -63,11 +63,11 @@
+ sys.path.insert(0, basedir)   
+ 
+ basedir = basedir.replace ( '/bin', '' ) 
+-basedir = basedir.replace ( '/lib/qemulator', '' ) 
++basedir = basedir.replace ( '/share/qemulator', '' ) 
+ sys.path.append(basedir)   
+ bindir = basedir + "/bin"
+ #print "bindir: " + bindir
+-libdir = basedir + "/lib/qemulator"
++libdir = basedir + "/share/qemulator"
+ #print "libdir: " + libdir
+ sharedir = basedir + "/share/qemulator"
+ #print "sharedir: " + sharedir
+@@ -137,14 +137,14 @@
+ 		print "runstat: " + str(self.runstat)
+ 
+ 		self.basedir = basedir.replace ( '/bin', '' ) 
+-		self.basedir = self.basedir.replace ( '/lib/qemulator', '' ) 
++		self.basedir = self.basedir.replace ( '/share/qemulator', '' ) 
+ 		
+ 			
+ 		print "basedir: " + self.basedir
+ 			
+ 		self.bindir = self.basedir + "/bin"
+ 		print "bindir: " + self.bindir
+-		self.libdir = self.basedir + "/lib/qemulator"
++		self.libdir = self.basedir + "/share/qemulator"
+ 		print "libdir: " + self.libdir
+ 		self.sharedir = self.basedir + "/share/qemulator"
+ 		print "sharedir: " + self.sharedir 
+@@ -1682,4 +1682,4 @@
+     	else:
+     		return data 
+ 
+-        									   
+\ No newline at end of file
++        									   
+diff -Nur trunk/usr/local/lib/qemulator/qml_filehandlers.py trunk.new/usr/local/lib/qemulator/qml_filehandlers.py
+--- trunk/usr/local/lib/qemulator/qml_filehandlers.py	2007-05-16 23:13:01.000000000 +0200
++++ trunk.new/usr/local/lib/qemulator/qml_filehandlers.py	2007-07-31 11:14:35.000000000 +0200
+@@ -44,10 +44,10 @@
+ sys.path.insert(0, basedir)   
+ 
+ basedir = basedir.replace ( '/bin', '' ) 
+-basedir = basedir.replace ( '/lib/qemulator', '' ) 
++basedir = basedir.replace ( '/share/qemulator', '' ) 
+ sys.path.append(basedir)   
+ bindir = basedir + "/bin"
+-libdir = basedir + "/lib/qemulator"
++libdir = basedir + "/share/qemulator"
+ sharedir = basedir + "/share/qemulator"
+ pixmapdir = basedir + "/share/pixmaps/qemulator"
+ homedir = os.path.expanduser('~/.qemulator')
+@@ -244,4 +244,4 @@
+             returnmesg = "no command given!"
+         return returnmesg                  
+                  
+-             
+\ No newline at end of file
++             
+diff -Nur trunk/usr/local/lib/qemulator/qml_imagecreation.py trunk.new/usr/local/lib/qemulator/qml_imagecreation.py
+--- trunk/usr/local/lib/qemulator/qml_imagecreation.py	2007-05-31 06:30:35.000000000 +0200
++++ trunk.new/usr/local/lib/qemulator/qml_imagecreation.py	2007-07-31 11:14:35.000000000 +0200
+@@ -55,7 +55,7 @@
+ sys.path.insert(0, basedir)   
+ 
+ basedir = basedir.replace ( '/bin', '' ) 
+-basedir = basedir.replace ( '/lib/qemulator', '' )
++basedir = basedir.replace ( '/share/qemulator', '' )
+ 
+ APP = 'Qemulator'
+ #DIR = 'locale'
+@@ -72,7 +72,7 @@
+ 
+ homedir = os.path.expanduser('~/.qemulator')
+ configdir = homedir + "/config"
+-libdir = basedir + "/lib/qemulator"    
++libdir = basedir + "/share/qemulator"    
+     
+ class CreateImage:
+     def __init__(self, imagespath, callback_func=None):
+@@ -258,4 +258,4 @@
+             pass 
+         
+     def return_newimage(self):
+-        return self.newimage
+\ No newline at end of file
++        return self.newimage
+diff -Nur trunk/usr/local/lib/qemulator/qml_installwizzard.py trunk.new/usr/local/lib/qemulator/qml_installwizzard.py
+--- trunk/usr/local/lib/qemulator/qml_installwizzard.py	2007-05-31 07:55:33.000000000 +0200
++++ trunk.new/usr/local/lib/qemulator/qml_installwizzard.py	2007-07-31 11:14:35.000000000 +0200
+@@ -57,7 +57,7 @@
+ sys.path.insert(0, basedir)   
+ 
+ basedir = basedir.replace ( '/bin', '' ) 
+-basedir = basedir.replace ( '/lib/qemulator', '' )
++basedir = basedir.replace ( '/share/qemulator', '' )
+ pixmapdir = basedir + "/share/pixmaps/qemulator"
+ 
+ APP = 'Qemulator'
+@@ -75,7 +75,7 @@
+ 
+ homedir = os.path.expanduser('~/.qemulator')
+ configdir = homedir + "/config"
+-libdir = basedir + "/lib/qemulator"    
++libdir = basedir + "/share/qemulator"    
+    
+ class Installwizzard:
+     def __init__(self, qemulator_instance, callback_func=None):
+@@ -756,4 +756,4 @@
+                 isset = True                
+         else:
+             isset = False
+-        return isset          
+\ No newline at end of file
++        return isset          
+diff -Nur trunk/usr/local/lib/qemulator/qml_machinesetup.py trunk.new/usr/local/lib/qemulator/qml_machinesetup.py
+--- trunk/usr/local/lib/qemulator/qml_machinesetup.py	2007-06-04 22:24:04.000000000 +0200
++++ trunk.new/usr/local/lib/qemulator/qml_machinesetup.py	2007-07-31 11:14:35.000000000 +0200
+@@ -58,7 +58,7 @@
+ sys.path.insert(0, basedir)   
+ 
+ basedir = basedir.replace ( '/bin', '' ) 
+-basedir = basedir.replace ( '/lib/qemulator', '' )
++basedir = basedir.replace ( '/share/qemulator', '' )
+ pixmapdir = basedir + "/share/pixmaps/qemulator"
+ 
+ APP = 'Qemulator'
+@@ -76,7 +76,7 @@
+ 
+ homedir = os.path.expanduser('~/.qemulator')
+ configdir = homedir + "/config"
+-libdir = basedir + "/lib/qemulator"    
++libdir = basedir + "/share/qemulator"    
+    
+ class Machinesetup:
+     def __init__(self, qemulator_instance, init_image=None, callback_func=None):
+diff -Nur trunk/usr/local/lib/qemulator/qml_tools.py trunk.new/usr/local/lib/qemulator/qml_tools.py
+--- trunk/usr/local/lib/qemulator/qml_tools.py	2007-05-31 07:09:19.000000000 +0200
++++ trunk.new/usr/local/lib/qemulator/qml_tools.py	2007-07-31 11:14:35.000000000 +0200
+@@ -82,11 +82,11 @@
+ os.chdir(basedir)  
+ #print "basedir: " + basedir
+ basedir = basedir.replace ( '/bin', '' ) 
+-basedir = basedir.replace ( '/lib/qemulator', '' ) 
++basedir = basedir.replace ( '/share/qemulator', '' ) 
+ sys.path.append(basedir)   
+ bindir = basedir + "/bin"
+ #print "bindir: " + bindir
+-libdir = basedir + "/lib/qemulator"
++libdir = basedir + "/share/qemulator"
+ #print "libdir: " + libdir
+ sharedir = basedir + "/share/qemulator"
+ #print "sharedir: " + sharedir
