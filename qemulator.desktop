@@ -1,0 +1,12 @@
+[Desktop Entry]
+Comment=Qemu Virtual Engines manager
+Comment[de]=Qemu engines manager
+Categories=GTK;Emulator;Utility;
+Encoding=UTF-8
+Exec=qemulator
+Icon=qemulator
+Name=Qemulator
+Name[de]=Qemulator
+StartupNotify=true
+Terminal=false
+Type=Application

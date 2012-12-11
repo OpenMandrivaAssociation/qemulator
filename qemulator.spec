@@ -78,3 +78,54 @@ rm -rf %{buildroot}
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
 %{_datadir}/pixmaps/qemulator/*.png
+
+
+%changelog
+* Mon Aug 06 2012 Johnny A. Solbu <solbu@mandriva.org> 0.5-9mdv2012.0
++ Revision: 811863
+- Fix menu entry
+- Fix Requires
+- Fix License
+- Spec cleanup
+
+* Tue Sep 15 2009 Thierry Vignaud <tv@mandriva.org> 0.5-8mdv2010.0
++ Revision: 442555
+- rebuild
+
+* Fri Mar 06 2009 Antoine Ginies <aginies@mandriva.com> 0.5-7mdv2009.1
++ Revision: 350167
+- 2009.1 rebuild
+
+* Thu Sep 04 2008 Jérôme Soyer <saispo@mandriva.org> 0.5-6mdv2009.0
++ Revision: 280558
+- Remove unneeded BR
+
+* Fri Aug 01 2008 Thierry Vignaud <tv@mandriva.org> 0.5-5mdv2009.0
++ Revision: 259912
+- rebuild
+
+* Fri Jul 25 2008 Thierry Vignaud <tv@mandriva.org> 0.5-4mdv2009.0
++ Revision: 247761
+- rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+* Mon Mar 31 2008 Anne Nicolas <ennael@mandriva.org> 0.5-2mdv2008.1
++ Revision: 191235
+- Add pygtk2.0-libglade require (#39627)
+
+  + Olivier Blin <blino@mandriva.org>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Tue Oct 09 2007 Jérôme Soyer <saispo@mandriva.org> 0.5-1mdv2008.1
++ Revision: 95839
+- Add imagemagick to BuildRequires
+- Add desktop file
+- Add desktop file
+- import qemulator
+
+
