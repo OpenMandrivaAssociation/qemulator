@@ -3,14 +3,13 @@
 Summary:	Interface to configure and launch Qemu
 Name:		qemulator
 Version:	0.5
-Release:	%mkrel 9
+Release:	10
 License:	GPLv2+
 Group:		Emulators
 URL:		http://qemulator.createweb.de/
 Source0:	http://qemulator.createweb.de/%{oname}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Patch0:		fix_python_dir.patch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:	noarch
 
 Requires:	perl-Locale-gettext >= 1.04
