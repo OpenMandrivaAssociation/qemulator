@@ -22,7 +22,7 @@ Requires:	pygtk2.0-libglade
 BuildRequires:	librsvg
 BuildRequires:	libxml2-utils
 BuildRequires:	desktop-file-utils
-BuildRequires:	libglade2.0-devel
+BuildRequires:	pkgconfig(libglade-2.0)
 BuildRequires:	pygtk2.0-devel
 BuildRequires:	imagemagick
 
