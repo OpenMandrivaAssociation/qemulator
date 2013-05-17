@@ -3,7 +3,7 @@
 Summary:	Interface to configure and launch Qemu
 Name:		qemulator
 Version:	0.5
-Release:	10
+Release:	11
 License:	GPLv2+
 Group:		Emulators
 URL:		http://qemulator.createweb.de/
