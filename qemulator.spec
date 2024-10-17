@@ -6,7 +6,7 @@ Version:	0.5
 Release:	11
 License:	GPLv2+
 Group:		Emulators
-URL:		http://qemulator.createweb.de/
+URL:		https://qemulator.createweb.de/
 Source0:	http://qemulator.createweb.de/%{oname}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Patch0:		fix_python_dir.patch
